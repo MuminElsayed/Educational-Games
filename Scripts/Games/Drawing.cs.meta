@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 28f0bd0ab44f72d4cb1c663b2fbfb74b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - trailPrefab: {fileID: 4991943940781647640, guid: 0a88fc809e6caa3428ee4ac4a43957e8,
+      type: 3}
+  - drawings: {instanceID: 0}
+  - cursor: {fileID: 2941185596716756828, guid: 2d240e39ed591af40ac9b8283e21cee5,
+      type: 3}
+  - startMenu: {instanceID: 0}
+  - playingMenu: {instanceID: 0}
+  - endgameMenu: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

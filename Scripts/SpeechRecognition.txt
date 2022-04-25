@@ -1,0 +1,37 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Windows.Speech;
+using System.Linq;
+
+public class SpeechRecognition : MonoBehaviour
+{
+    // public char[] letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray(); //Makes an array with each letter seperately
+    public string[] letters = new string[] {"a", "b"};
+    KeywordRecognizer keywordRecognizer;
+    Dictionary<string, System.Action> keywords = new Dictionary<string, System.Action>();
+
+    void Start()
+    {
+        keywords.Add(letters[0], () =>
+        {
+            print("A"); //First dictionary item
+        });
+
+        keywordRecognizer = new KeywordRecognizer(keywords.Keys.ToArray());
+
+        keywordRecognizer.OnPhraseRecognized += KeywordRecognizer_OnPhraseRecognized;
+
+        keywordRecognizer.Start();
+    }
+
+    void KeywordRecognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args)
+    {
+        System.Action keywordAction;
+        //When recognized do this
+        if (keywords.TryGetValue(args.text, out keywordAction))
+        {
+            keywordAction.Invoke();
+        }
+    }
+}
